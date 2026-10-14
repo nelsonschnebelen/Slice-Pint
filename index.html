@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Private events in Redondo Beach | The Slice &amp; Pint</title>
+<meta name="description" content="Plan your next gathering at The Slice & Pint in Redondo Beach. Tell us about your group and our team will help with the details.">
+<meta name="robots" content="noindex, nofollow"><!-- preview: remove at launch -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#14284A; --navy-deep:#0D1C36; --sky:#9CC3E0; --sky-wash:#E6F0F8;
+  --gold:#D8C089; --bg:#FBFAF6; --surface:#FFFFFF; --ink:#14284A; --muted:#4A5B76;
+  --line:#D3DEEA; --danger:#A3262A; --ok:#1F6B45;
+  --font:"Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --r-sm:6px; --r-lg:14px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1B31; --surface:#15284A; --ink:#EDF3FA; --muted:#AEC0D6; --line:#2B4570;
+    --sky-wash:#18304F; --navy-deep:#091427; --danger:#F08A8C; --ok:#7FD1A4;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1B31; --surface:#15284A; --ink:#EDF3FA; --muted:#AEC0D6; --line:#2B4570;
+  --sky-wash:#18304F; --navy-deep:#091427; --danger:#F08A8C; --ok:#7FD1A4;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth; scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{animation:none!important; transition:none!important}}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--font); font-size:1.0625rem; line-height:1.6; overflow-x:hidden}
+img{max-width:100%; height:auto; display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold); outline-offset:3px; border-radius:3px}
+.wrap{width:min(1160px, 100% - 2.5rem); margin-inline:auto}
+.sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+
+/* preview strip */
+.preview{background:var(--gold); color:#14284A; font-size:.875rem; line-height:1.4; padding:.55rem 0; text-align:center}
+.preview[hidden]{display:none}
+
+/* header */
+.site-head{position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:var(--navy); color:#fff; border-bottom:1px solid rgba(255,255,255,.08)}
+.site-head .wrap{display:flex; align-items:center; gap:1rem; min-height:70px}
+.brand{display:flex; align-items:center; gap:.85rem; text-decoration:none; min-width:0}
+.brand img{height:46px; width:auto}
+.brand-loc{font-stretch:88%; font-weight:600; font-size:.95rem; color:var(--sky); white-space:nowrap; padding-left:.85rem; border-left:1px solid rgba(255,255,255,.25)}
+.site-head .btn{margin-left:auto}
+
+/* buttons */
+.btn{display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:.7rem 1.35rem; border-radius:999px; font:inherit; font-weight:700; font-stretch:105%; font-size:1rem; text-decoration:none; border:2px solid transparent; cursor:pointer; transition:background .15s, color .15s}
+.btn-gold{background:var(--gold); color:#14284A}
+.btn-gold:hover{background:#E6D3A4}
+.btn-sm{min-height:44px; padding:.5rem 1.05rem; font-size:.95rem}
+.btn[disabled]{opacity:.6; cursor:progress}
+.link{font-weight:700; text-underline-offset:4px; text-decoration-thickness:2px; text-decoration-color:var(--sky); display:inline-flex; align-items:center; min-height:44px}
+
+/* image slots: shown until a verified asset path is set in CONFIG */
+.slot{display:grid; place-items:center; text-align:center; padding:1.25rem; border:2px dashed currentColor; border-radius:var(--r-lg); font-size:.9rem; line-height:1.4; opacity:.75}
+.slot strong{display:block; font-stretch:105%}
+.logo-slot{border-radius:var(--r-sm); padding:.3rem .7rem; font-size:.78rem; min-height:40px; opacity:.85}
+
+/* hero */
+.hero{background:var(--navy); color:#fff; padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(3rem,8vw,6rem); position:relative; overflow:hidden}
+.hero::after{content:""; position:absolute; inset:auto 0 0 0; height:10px; background:repeating-linear-gradient(90deg,var(--sky) 0 28px,transparent 28px 40px); opacity:.35}
+.hero .wrap{display:grid; gap:clamp(2rem,5vw,4rem); grid-template-columns:1fr; align-items:center}
+@media (min-width:900px){.hero .wrap{grid-template-columns:1.15fr .85fr}}
+.kicker{font-stretch:88%; font-weight:600; color:var(--sky); margin:0 0 1rem; font-size:1rem}
+.hero h1{font-weight:850; font-stretch:118%; font-size:clamp(2.35rem,6.6vw,4.9rem); line-height:.98; letter-spacing:-.015em; margin:0 0 1.4rem; max-width:13ch; text-wrap:balance}
+.hero p.lede{font-size:clamp(1.05rem,1.6vw,1.2rem); max-width:44ch; color:#DCE7F2; margin:0 0 2rem}
+.hero-ctas{display:flex; flex-wrap:wrap; align-items:center; gap:.75rem 1.5rem}
+.hero-ctas .link{color:#fff}
+.hero-media{aspect-ratio:4/5; max-height:560px; width:100%; border-radius:var(--r-lg); overflow:hidden; background:var(--navy-deep); color:var(--sky)}
+.hero-media .slot{height:100%; border-radius:var(--r-lg)}
+.hero-media img{width:100%; height:100%; object-fit:cover}
+.hero-badge{max-width:180px; margin-bottom:1.5rem}
+
+/* sections */
+section.band{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.band h2{font-weight:800; font-stretch:112%; font-size:clamp(1.9rem,4vw,2.9rem); line-height:1.05; letter-spacing:-.01em; margin:0 0 1rem; max-width:20ch; text-wrap:balance}
+.band p{max-width:62ch; margin:0 0 1rem}
+.muted{color:var(--muted)}
+.split{display:grid; gap:2.5rem; grid-template-columns:1fr; align-items:start}
+@media (min-width:860px){.split{grid-template-columns:1fr 1fr; gap:4rem}}
+.occasions{display:flex; flex-wrap:wrap; gap:.5rem; padding:0; margin:1.5rem 0 0; list-style:none}
+.occasions li{border:1.5px solid var(--line); border-radius:999px; padding:.35rem .9rem; font-size:.95rem; font-weight:600}
+.gallery{display:grid; gap:1rem; grid-template-columns:1fr 1fr}
+.gallery figure{margin:0}
+.gallery .frame{aspect-ratio:1/1; border-radius:var(--r-lg); overflow:hidden; background:var(--sky-wash); color:var(--muted)}
+.gallery .frame .slot{height:100%}
+.gallery .frame img{width:100%; height:100%; object-fit:cover}
+.gallery figcaption{font-size:.85rem; color:var(--muted); margin-top:.5rem}
+.gallery figure:nth-child(2){margin-top:2rem}
+
+.food{background:var(--sky-wash)}
+.food .frame{aspect-ratio:1; border-radius:50%; overflow:hidden; max-width:420px; background:var(--surface); color:var(--muted)}
+.food .frame .slot{height:100%; border-radius:50%}
+.food .frame img{width:100%; height:100%; object-fit:cover}
+.food .note{font-size:.95rem}
+
+/* steps: a real sequence */
+.steps{list-style:none; padding:0; margin:2.5rem 0 0; display:grid; gap:1.75rem; counter-reset:step}
+@media (min-width:760px){.steps{grid-template-columns:repeat(3,1fr); gap:2.5rem}}
+.steps li{counter-increment:step; border-top:3px solid var(--navy); padding-top:1rem}
+:root[data-theme="dark"] .steps li{border-top-color:var(--sky)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .steps li{border-top-color:var(--sky)}}
+.steps li::before{content:counter(step); display:block; font-weight:850; font-stretch:120%; font-size:2.6rem; line-height:1; margin-bottom:.6rem; color:var(--sky)}
+.steps h3{font-size:1.15rem; font-stretch:108%; margin:0 0 .35rem}
+.steps p{margin:0; color:var(--muted)}
+
+/* planner */
+.planner{background:var(--navy); color:#fff}
+.planner h2{color:#fff}
+.planner .intro{color:#DCE7F2}
+.planner-grid{display:grid; gap:2rem; grid-template-columns:1fr; margin-top:2rem; align-items:start}
+@media (min-width:960px){.planner-grid{grid-template-columns:1.35fr .9fr; gap:3rem}}
+form.card{background:var(--surface); color:var(--ink); border-radius:var(--r-lg); padding:clamp(1.25rem,4vw,2.25rem)}
+fieldset{border:0; padding:0; margin:0 0 1.75rem; min-width:0}
+legend{font-weight:800; font-stretch:110%; font-size:1.25rem; margin-bottom:1rem; padding:0}
+.fields{display:grid; gap:1.1rem; grid-template-columns:1fr}
+@media (min-width:600px){.fields.two{grid-template-columns:1fr 1fr}}
+.field{display:flex; flex-direction:column; gap:.35rem; min-width:0}
+.field label,.field .label{font-weight:650; font-size:.98rem}
+.req{color:var(--muted); font-weight:500; font-size:.85rem}
+input[type=text],input[type=email],input[type=tel],input[type=date],input[type=number],select,textarea{
+  font:inherit; color:var(--ink); background:var(--bg); border:1.5px solid var(--line); border-radius:var(--r-sm);
+  min-height:48px; padding:.6rem .8rem; width:100%; max-width:100%}
+textarea{min-height:110px; resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--sky); outline-offset:1px; border-color:var(--navy)}
+[aria-invalid="true"]{border-color:var(--danger)!important}
+.err{color:var(--danger); font-size:.9rem; font-weight:600; min-height:0}
+.err:empty{display:none}
+.check{display:flex; gap:.6rem; align-items:center; min-height:44px; font-weight:600}
+.check input{width:22px; height:22px; accent-color:var(--navy)}
+.chips{display:flex; flex-wrap:wrap; gap:.5rem}
+.chips label{position:relative}
+.chips input{position:absolute; opacity:0; inset:0; width:100%; height:100%; margin:0; cursor:pointer}
+.chips span{display:inline-flex; align-items:center; min-height:44px; padding:.4rem 1rem; border:1.5px solid var(--line); border-radius:999px; font-weight:600; font-size:.95rem}
+.chips input:checked + span{background:var(--navy); color:#fff; border-color:var(--navy)}
+.chips input:focus-visible + span{outline:3px solid var(--sky); outline-offset:2px}
+.counter{font-size:.82rem; color:var(--muted); align-self:flex-end}
+.hp{position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden}
+.notice{font-size:.95rem; color:var(--muted); border-left:3px solid var(--gold); padding:.2rem 0 .2rem .85rem; margin:0 0 1.25rem}
+.err-summary{border:2px solid var(--danger); border-radius:var(--r-sm); padding:.85rem 1rem; margin-bottom:1.25rem}
+.err-summary[hidden]{display:none}
+.err-summary h3{margin:0 0 .35rem; font-size:1rem; color:var(--danger)}
+.err-summary ul{margin:0; padding-left:1.1rem}
+.status{margin-top:1rem; border-radius:var(--r-sm); padding:1rem; font-weight:600}
+.status[hidden]{display:none}
+.status.ok{background:rgba(31,107,69,.1); color:var(--ok); border:1.5px solid currentColor}
+.status.fail{background:rgba(163,38,42,.08); color:var(--danger); border:1.5px solid currentColor}
+.status.preview-mode{background:rgba(216,192,137,.18); color:var(--ink); border:1.5px dashed var(--gold); font-weight:500}
+.status pre{white-space:pre-wrap; word-break:break-word; font-size:.8rem; margin:.75rem 0 0; max-height:260px; overflow:auto}
+
+/* the tab: one bold element */
+.tab{position:sticky; top:96px; background:#FFFDF7; color:#14284A; padding:1.75rem 1.5rem 1.5rem; font-stretch:82%;
+  -webkit-mask:radial-gradient(circle 7px at 50% 0,#0000 98%,#000) 0 0/18px 100% repeat-x;
+          mask:radial-gradient(circle 7px at 50% 0,#0000 98%,#000) 0 0/18px 100% repeat-x;
+  box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.tab-head{text-align:center; border-bottom:2px dashed #C9D5E2; padding-bottom:1rem; margin-bottom:1rem}
+.tab-head strong{display:block; font-size:1.35rem; font-weight:850; font-stretch:105%}
+.tab-head span{font-size:.92rem; color:#4A5B76}
+.tab dl{margin:0}
+.tab .row{display:flex; align-items:baseline; gap:.5rem; padding:.42rem 0; font-size:1rem}
+.tab dt{font-weight:600; white-space:nowrap}
+.tab .row::after{content:""; order:2; flex:1; border-bottom:2px dotted #C9D5E2; transform:translateY(-4px)}
+.tab dd{order:3; margin:0; font-weight:800; text-align:right; max-width:60%; overflow-wrap:anywhere}
+.tab dd.empty{color:#8796AB; font-weight:500}
+.tab-foot{border-top:2px dashed #C9D5E2; margin-top:1rem; padding-top:1rem; font-size:.9rem; line-height:1.45; color:#4A5B76; text-align:center}
+@media (max-width:959px){.tab{position:static}}
+
+/* faq */
+.faq{max-width:760px}
+.faq details{border-bottom:1.5px solid var(--line)}
+.faq summary{cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem; min-height:56px; padding:.75rem 0; font-weight:700; font-size:1.1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+"; font-size:1.5rem; font-weight:500; color:var(--muted)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:0 0 1.25rem; color:var(--muted)}
+
+/* footer */
+.site-foot{background:var(--navy-deep); color:#DCE7F2; padding:3rem 0 2.5rem; font-size:.98rem}
+.site-foot .wrap{display:grid; gap:2rem; grid-template-columns:1fr}
+@media (min-width:760px){.site-foot .wrap{grid-template-columns:auto 1fr auto; align-items:center}}
+.site-foot img{max-width:160px}
+.site-foot address{font-style:normal}
+.site-foot a{text-underline-offset:3px}
+.foot-links{display:flex; flex-wrap:wrap; gap:.25rem 1.25rem}
+</style>
+</head>
+<body>
+
+<div class="preview" id="previewStrip" role="note">Preview only. The inquiry form is not connected, so nothing is sent.</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="The Slice &amp; Pint, Redondo Beach">
+      <span data-asset="wordmark" data-alt="The Slice &amp; Pint" data-slot-class="logo-slot" data-slot-label="Wordmark: slice-pint-wordmark.png"></span>
+      <span class="brand-loc">Redondo Beach</span>
+    </a>
+    <a class="btn btn-gold btn-sm" href="#plan" data-track="cta_click" data-cta="header">Plan Your Event</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Private events in Redondo Beach</p>
+        <h1 id="hero-title">Bring everyone together over pizza and beer.</h1>
+        <p class="lede">Plan your next gathering at The Slice &amp; Pint in Redondo Beach. Tell us about your group and our team will help with the details.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="#plan" data-track="cta_click" data-cta="hero">Tell Us About Your Event</a>
+          <a class="link" href="#space" data-track="cta_click" data-cta="hero_space">Explore the Space</a>
+        </div>
+      </div>
+      <div class="hero-media" data-asset="hero" data-alt="" data-slot-label="Hero: verified Redondo private dining room photo" data-eager="true"></div>
+    </div>
+  </section>
+
+  <section class="band" id="space" aria-labelledby="space-title">
+    <div class="wrap split">
+      <div>
+        <h2 id="space-title">A space for your next get-together.</h2>
+        <p>Our Redondo Beach location has a private dining room for groups who want a spot of their own, with the same pizza and beer you already come in for.</p>
+        <p class="muted" data-config="capacityText"></p>
+        <ul class="occasions" aria-label="Good for">
+          <li>Birthdays</li><li>Team gatherings</li><li>Celebrations</li>
+        </ul>
+      </div>
+      <div class="gallery">
+        <figure>
+          <div class="frame" data-asset="room1" data-alt="" data-slot-label="Room photo 1 (verify location before use)"></div>
+          <figcaption data-caption="room1"></figcaption>
+        </figure>
+        <figure>
+          <div class="frame" data-asset="room2" data-alt="" data-slot-label="Room photo 2 (verify location before use)"></div>
+          <figcaption data-caption="room2"></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band food" aria-labelledby="food-title">
+    <div class="wrap split">
+      <div class="frame" data-asset="food" data-alt="A pepperoni pizza from The Slice &amp; Pint" data-slot-label="Food: pizza-brand-food.jpg"></div>
+      <div>
+        <h2 id="food-title">Pizza, cold beer, and room for everyone.</h2>
+        <p>The Slice &amp; Pint is the pizza-and-pint spot from El Segundo Brewing Company. Share what your group likes to eat and drink, and we'll talk through options when we follow up.</p>
+        <p class="note muted">There are no set event packages right now. Our team will go over food, drinks and anything else your event needs.</p>
+        <a class="link" href="https://www.thesliceandpint.com/" data-config-href="menuUrl" target="_blank" rel="noopener">See the menu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="how-title">
+    <div class="wrap">
+      <h2 id="how-title">Tell us what you have in mind.</h2>
+      <p class="muted">Sending an inquiry takes a couple of minutes. Here's what happens after that.</p>
+      <ol class="steps">
+        <li><h3>Share your event details</h3><p>Your date, group size and what you're celebrating.</p></li>
+        <li><h3>We review availability</h3><p>Our team checks the room and the arrangements for your date.</p></li>
+        <li><h3>We plan it together</h3><p>We contact you to confirm the details before anything is booked.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band planner" id="plan" aria-labelledby="plan-title">
+    <div class="wrap">
+      <h2 id="plan-title">Plan your event</h2>
+      <p class="intro">Fields marked required are all we need to get started.</p>
+
+      <div class="planner-grid">
+        <form class="card" id="inquiry" novalidate>
+          <p class="notice">Submitting this form sends an inquiry. Your event is not confirmed until our team contacts you.</p>
+
+          <div class="err-summary" id="errSummary" tabindex="-1" hidden>
+            <h3>Check these fields</h3>
+            <ul id="errList"></ul>
+          </div>
+
+          <fieldset>
+            <legend>Your event</legend>
+            <div class="fields two">
+              <div class="field">
+                <label for="date">Preferred date <span class="req">(required)</span></label>
+                <input type="date" id="date" name="date" aria-describedby="date-err">
+                <span class="err" id="date-err" aria-live="polite"></span>
+                <label class="check"><input type="checkbox" id="flexible" name="flexible"> I'm flexible on the date</label>
+              </div>
+              <div class="field">
+                <label for="guests">Estimated guests <span class="req">(required)</span></label>
+                <input type="number" id="guests" name="guests" inputmode="numeric" min="1" max="300" step="1" aria-describedby="guests-err">
+                <span class="err" id="guests-err" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="time">Preferred time</label>
+                <select id="time" name="time">
+                  <option value="">No preference</option>
+                  <option>Lunch</option><option>Afternoon</option><option>Evening</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="occasion">Occasion</label>
+                <select id="occasion" name="occasion">
+                  <option value="">Choose one</option>
+                  <option>Birthday</option><option>Team gathering</option><option>Celebration</option><option>Something else</option>
+                </select>
+              </div>
+            </div>
+            <div class="field" style="margin-top:1.1rem">
+              <span class="label" id="seating-label">Seated or standing?</span>
+              <div class="chips" role="radiogroup" aria-labelledby="seating-label">
+                <label><input type="radio" name="seating" value="Seated"><span>Seated</span></label>
+                <label><input type="radio" name="seating" value="Standing"><span>Standing</span></label>
+                <label><input type="radio" name="seating" value="Not sure yet" checked><span>Not sure yet</span></label>
+              </div>
+            </div>
+            <div class="field" style="margin-top:1.1rem">
+              <label for="notes">Anything else we should know?</label>
+              <textarea id="notes" name="notes" maxlength="1000" aria-describedby="notes-count"></textarea>
+              <span class="counter" id="notes-count">0 / 1000</span>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Your contact details</legend>
+            <div class="fields two">
+              <div class="field">
+                <label for="name">Full name <span class="req">(required)</span></label>
+                <input type="text" id="name" name="name" autocomplete="name" maxlength="120" aria-describedby="name-err">
+                <span class="err" id="name-err" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">(required)</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" maxlength="254" aria-describedby="email-err">
+                <span class="err" id="email-err" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="30">
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="hp" aria-hidden="true">
+            <label for="company_site">Leave this field empty</label>
+            <input type="text" id="company_site" name="company_site" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="muted" style="font-size:.92rem">We'll use your details only to respond to this inquiry.<span data-config="privacyLink"></span></p>
+          <button class="btn btn-gold" type="submit" id="submitBtn" style="width:100%">Send Inquiry</button>
+          <div class="status" id="status" role="status" aria-live="polite" hidden></div>
+        </form>
+
+        <aside class="tab" aria-label="Your event summary">
+          <div class="tab-head"><strong>Your event tab</strong><span>The Slice &amp; Pint · Redondo Beach</span></div>
+          <dl>
+            <div class="row"><dt>Date</dt><dd id="t-date" class="empty">Not chosen</dd></div>
+            <div class="row"><dt>Guests</dt><dd id="t-guests" class="empty">Not set</dd></div>
+            <div class="row"><dt>Time</dt><dd id="t-time" class="empty">No preference</dd></div>
+            <div class="row"><dt>Occasion</dt><dd id="t-occasion" class="empty">Not set</dd></div>
+            <div class="row"><dt>Seating</dt><dd id="t-seating">Not sure yet</dd></div>
+            <div class="row"><dt>Name</dt><dd id="t-name" class="empty">Not set</dd></div>
+          </dl>
+          <p class="tab-foot">This is an inquiry, not a booking. Our team confirms availability and arrangements with you.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <h2 id="faq-title">Good to know</h2>
+      <details>
+        <summary>Does sending this form book the room?</summary>
+        <p>No. It sends an inquiry. Your event isn't confirmed until our team contacts you and you agree on the details together.</p>
+      </details>
+      <details>
+        <summary>Do you have event packages?</summary>
+        <p>Not at the moment. Our team will talk through food, drinks and anything else your event needs when we follow up.</p>
+      </details>
+      <details>
+        <summary>Who confirms the arrangements?</summary>
+        <p>The team at our Redondo Beach location reviews every inquiry and confirms availability and arrangements directly with you.</p>
+      </details>
+      <div data-config="minSpendFaq"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div data-asset="badge" data-alt="The Slice &amp; Pint" data-slot-class="logo-slot" data-slot-label="Badge: slice-pint-logo.png"></div>
+    <address>
+      <strong>The Slice &amp; Pint · Redondo Beach</strong><br>
+      601 North Pacific Coast Highway<br>Redondo Beach, CA 90277
+      <span data-config="phone"></span>
+    </address>
+    <div class="foot-links">
+      <a href="https://www.thesliceandpint.com/" target="_blank" rel="noopener">thesliceandpint.com</a>
+      <span data-config="privacyFooter"></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   CONFIG — every approval-gated item lives here.
+   Empty string = not approved / not verified = not shown.
+   ========================================================= */
+const CONFIG = {
+  // Backend route that sends the email server-side. The recipient lives
+  // ONLY in server env config (INQUIRY_TO), never in this file or the repo.
+  // Empty = preview mode, nothing is sent.
+  endpoint: "",
+
+  location: "Redondo Beach",
+
+  assets: {            // local optimized files in /assets once verified
+    wordmark: "assets/slice-pint-logo.webp",  // official badge (no separate wordmark supplied)
+    badge: "assets/slice-pint-logo.webp",
+    food: "assets/pepperoni.webp",            // food only, not the venue
+    hero: "assets/food-spread.webp",          // food spread; swap for a verified Redondo room shot if preferred
+    room1: "assets/room-1.webp",              // supplied by Nelson; location pending confirmation
+    room2: "assets/room-2.webp"
+  },
+  alts: {
+    hero: "Pizza, a chopped salad, garlic bread and baked meatballs on a wooden table",
+    room1: "Dining room with long wooden communal tables, bar stools and glass roll-up doors",
+    room2: "Dining room with wooden tables and benches under string lights and tall windows"
+  },     // write once photos are verified
+  captions: { room1: "", room2: "" },           // only after location is verified
+  dims: { wordmark:[800,367], badge:[800,367], food:[720,820], hero:[640,1136], room1:[418,400], room2:[348,348] },
+
+  capacityText: "",    // e.g. "Fits about 30 seated or 40 standing." — pending client approval
+  minSpendFaq: false,  // $200 min-spend preorder for parties over 16 — internal approval item
+  menuUrl: "",         // verified official menu URL
+  phone: "",           // public restaurant phone, reconfirm at build time
+  privacyUrl: "",      // verified applicable policy URL
+  captureUtm: false,   // only under approved consent setup
+  debugTracking: false
+};
+
+/* ---------- assets / slots ---------- */
+document.querySelectorAll("[data-asset]").forEach(el => {
+  const key = el.dataset.asset, src = CONFIG.assets[key];
+  if (src) {
+    const img = new Image();
+    img.src = src;
+    img.alt = (CONFIG.alts[key] ?? el.dataset.alt) || "";
+    const d = CONFIG.dims[key]; if (d) { img.width = d[0]; img.height = d[1]; }
+    img.loading = el.dataset.eager ? "eager" : "lazy";
+    img.decoding = "async";
+    el.appendChild(img);
+  } else {
+    const s = document.createElement("div");
+    s.className = "slot " + (el.dataset.slotClass || "");
+    s.setAttribute("role", "img");
+    s.setAttribute("aria-label", "Image placeholder");
+    s.innerHTML = "<span><strong>Image slot</strong>" + el.dataset.slotLabel + "</span>";
+    el.appendChild(s);
+  }
+});
+document.querySelectorAll("[data-caption]").forEach(el => { el.textContent = CONFIG.captions[el.dataset.caption] || ""; if(!el.textContent) el.remove(); });
+
+/* ---------- approval-gated copy ---------- */
+const setC = (k, html) => document.querySelectorAll(`[data-config="${k}"]`).forEach(el => el.innerHTML = html);
+setC("capacityText", CONFIG.capacityText ? escapeHtml(CONFIG.capacityText) : "");
+setC("phone", CONFIG.phone ? `<br><a href="tel:${CONFIG.phone.replace(/[^\d+]/g,"")}">${escapeHtml(CONFIG.phone)}</a>` : "");
+setC("privacyLink", CONFIG.privacyUrl ? ` <a href="${CONFIG.privacyUrl}" target="_blank" rel="noopener">Privacy policy</a>` : "");
+setC("privacyFooter", CONFIG.privacyUrl ? `<a href="${CONFIG.privacyUrl}" target="_blank" rel="noopener">Privacy policy</a>` : "");
+setC("minSpendFaq", CONFIG.minSpendFaq ? `<details><summary>Is there a minimum for larger groups?</summary><p>For parties of more than 16, a $200 minimum-spend preorder on a single tab holds the reservation. Our team confirms all arrangements with you.</p></details>` : "");
+if (CONFIG.menuUrl) document.querySelector('[data-config-href="menuUrl"]').href = CONFIG.menuUrl;
+if (CONFIG.endpoint) document.getElementById("previewStrip").hidden = true;
+
+/* ---------- tracking hooks (no personal data, ever) ---------- */
+window.dataLayer = window.dataLayer || [];
+function track(event, params = {}) {
+  const payload = { event, location: CONFIG.location, ...params };
+  window.dataLayer.push(payload);
+  if (CONFIG.debugTracking) console.log("[track]", payload);
+}
+function attribution() {
+  if (!CONFIG.captureUtm) return {};
+  const p = new URLSearchParams(location.search), out = {};
+  ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","gclid","fbclid"].forEach(k => { const v = p.get(k); if (v) out[k] = v.slice(0,200); });
+  return out;
+}
+track("lp_view");
+document.querySelectorAll('[data-track="cta_click"]').forEach(a => a.addEventListener("click", () => track("cta_click", { cta: a.dataset.cta })));
+
+/* ---------- form ---------- */
+const form = document.getElementById("inquiry");
+const $ = id => document.getElementById(id);
+const today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+$("date").min = today.toISOString().slice(0,10);
+
+let started = false;
+form.addEventListener("input", () => { if (!started) { started = true; track("form_start"); } updateTab(); });
+form.addEventListener("change", updateTab);
+$("flexible").addEventListener("change", e => { $("date").disabled = e.target.checked; if (e.target.checked) clearErr("date"); updateTab(); });
+$("notes").addEventListener("input", e => $("notes-count").textContent = `${e.target.value.length} / 1000`);
+
+function fmtDate(v){ if(!v) return ""; const [y,m,d] = v.split("-").map(Number); return new Date(y,m-1,d).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"}); }
+function setTab(id, val, empty){ const el = $(id); el.textContent = val || empty; el.classList.toggle("empty", !val); }
+function updateTab(){
+  const f = new FormData(form);
+  setTab("t-date", $("flexible").checked ? "Flexible" : fmtDate(f.get("date")), "Not chosen");
+  const g = parseInt(f.get("guests"),10);
+  setTab("t-guests", g > 0 ? `${g} ${g === 1 ? "guest" : "guests"}` : "", "Not set");
+  setTab("t-time", f.get("time"), "No preference");
+  setTab("t-occasion", f.get("occasion"), "Not set");
+  setTab("t-seating", f.get("seating"), "Not sure yet");
+  setTab("t-name", (f.get("name")||"").trim(), "Not set");
+}
+
+const LABELS = { date:"Preferred date", guests:"Estimated guests", name:"Full name", email:"Email" };
+function setErr(id,msg){ $(id).setAttribute("aria-invalid","true"); $(id+"-err").textContent = msg; }
+function clearErr(id){ $(id).removeAttribute("aria-invalid"); $(id+"-err").textContent = ""; }
+
+function validate(){
+  const errs = {};
+  const name = $("name").value.trim(), email = $("email").value.trim();
+  const date = $("date").value, flex = $("flexible").checked, guests = $("guests").value.trim();
+  if (name.length < 2) errs.name = "Enter your full name.";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) errs.email = "Enter an email address like name@example.com.";
+  if (!flex) {
+    if (!date) errs.date = "Choose a date, or tick “I'm flexible on the date.”";
+    else if (date < $("date").min) errs.date = "Choose a date from today onward.";
+  }
+  if (!/^\d+$/.test(guests) || +guests < 1 || +guests > 300) errs.guests = "Enter a guest count between 1 and 300.";
+  ["name","email","date","guests"].forEach(k => errs[k] ? setErr(k, errs[k]) : clearErr(k));
+  const box = $("errSummary"), list = $("errList");
+  list.innerHTML = "";
+  const keys = Object.keys(errs);
+  if (keys.length) {
+    keys.forEach(k => { const li = document.createElement("li"); li.innerHTML = `<a href="#${k}">${LABELS[k]}</a>: ${escapeHtml(errs[k])}`; list.appendChild(li); });
+    box.hidden = false; box.focus();
+    track("form_validation_error", { fields: keys.join(",") }); // field names only
+  } else box.hidden = true;
+  return keys.length === 0;
+}
+
+// One idempotency key per inquiry; reused on retries so the server can drop duplicates.
+let submissionId = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
+let sending = false, done = false;
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (sending || done) return;
+  const status = $("status"); status.hidden = true; status.className = "status";
+  if (!validate()) return;
+  if ($("company_site").value) return; // honeypot: silently ignore bots
+
+  const f = new FormData(form);
+  const payload = {
+    submission_id: submissionId,
+    location: CONFIG.location,
+    name: f.get("name").trim(),
+    email: f.get("email").trim(),
+    phone: (f.get("phone")||"").trim(),
+    date: $("flexible").checked ? null : f.get("date"),
+    date_flexible: $("flexible").checked,
+    guests: parseInt(f.get("guests"),10),
+    time: f.get("time") || null,
+    occasion: f.get("occasion") || null,
+    seating: f.get("seating"),
+    notes: (f.get("notes")||"").trim(),
+    company_site: "",
+    attribution: attribution(),
+    submitted_at: new Date().toISOString()
+  };
+
+  if (!CONFIG.endpoint) {
+    status.className = "status preview-mode";
+    status.innerHTML = "<strong>Preview mode: nothing was sent.</strong> The form isn't connected to a mail service yet. This is the inquiry the server would receive:<pre></pre>";
+    status.querySelector("pre").textContent = JSON.stringify(payload, null, 2);
+    status.hidden = false;
+    return; // never fake a successful send
+  }
+
+  sending = true;
+  const btn = $("submitBtn"); btn.disabled = true; btn.textContent = "Sending…";
+  try {
+    const res = await fetch(CONFIG.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Idempotency-Key": submissionId },
+      body: JSON.stringify(payload)
+    });
+    let body = {}; try { body = await res.json(); } catch(_) {}
+    if (!res.ok || body.ok !== true) throw new Error(body.error || `HTTP ${res.status}`);
+    done = true;
+    status.className = "status ok";
+    status.textContent = "Thanks. Your inquiry has been received. Our team will contact you to discuss the details.";
+    status.hidden = false;
+    btn.textContent = "Inquiry sent";
+    // Lead conversion fires once per successful submission ID.
+    const key = "lead_fired_" + submissionId;
+    let fired = false; try { fired = sessionStorage.getItem(key) === "1"; } catch(_) {}
+    if (!fired) { track("generate_lead", { submission_id: submissionId }); try { sessionStorage.setItem(key,"1"); } catch(_) {} }
+  } catch (err) {
+    status.className = "status fail";
+    status.textContent = "Your inquiry wasn't sent. Check your connection and select Send Inquiry again; your details are still here.";
+    status.hidden = false;
+    btn.disabled = false; btn.textContent = "Send Inquiry";
+  } finally { sending = false; }
+});
+
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
+updateTab();
+</script>
+</body>
+</html>
