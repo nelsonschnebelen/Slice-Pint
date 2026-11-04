@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Private events in {{LOC}} | The Slice &amp; Pint</title>
+<meta name="description" content="Plan your next gathering at The Slice & Pint in {{LOC}}. Tell us about your group and our team will help with the details.">
+<meta name="robots" content="noindex, nofollow"><!-- preview: remove at launch -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ROOT}}assets/site.css">
+</head>
+<body>
+
+<div class="preview" id="previewStrip" role="note">Preview only. The inquiry form is not connected, so nothing is sent.</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="The Slice &amp; Pint, {{LOC}}">
+      <span data-asset="wordmark" data-alt="The Slice &amp; Pint" data-slot-class="logo-slot" data-slot-label="Wordmark: slice-pint-wordmark.png"></span>
+      <span class="brand-loc">{{LOC}}</span>
+    </a>
+    <a class="btn btn-gold btn-sm" href="#plan" data-track="cta_click" data-cta="header">Plan Your Event</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Private events in {{LOC}}</p>
+        <h1 id="hero-title">Bring everyone together over pizza and beer.</h1>
+        <p class="lede">Plan your next gathering at The Slice &amp; Pint in {{LOC}}. Tell us about your group and our team will help with the details.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="#plan" data-track="cta_click" data-cta="hero">Tell Us About Your Event</a>
+          <a class="link" href="#space" data-track="cta_click" data-cta="hero_space">Explore the Space</a>
+        </div>
+      </div>
+      <div class="hero-media" data-asset="hero" data-alt="" data-slot-label="Hero: event space photo" data-eager="true"></div>
+    </div>
+  </section>
+
+  <section class="band" id="space" aria-labelledby="space-title">
+    <div class="wrap split">
+      <div>
+        <h2 id="space-title">A space for your next get-together.</h2>
+        <p>{{SPACE_COPY}}</p>
+        <p class="muted" data-config="capacityText"></p>
+        <ul class="occasions" aria-label="Good for">
+          <li>Birthdays</li><li>Team gatherings</li><li>Celebrations</li>
+        </ul>
+      </div>
+      <div class="gallery"{{GALLERY_HIDDEN}}>
+        <figure>
+          <div class="frame" data-asset="room1" data-alt="" data-slot-label="Room photo 1 (verify location before use)"></div>
+          <figcaption data-caption="room1"></figcaption>
+        </figure>
+        <figure>
+          <div class="frame" data-asset="room2" data-alt="" data-slot-label="Room photo 2 (verify location before use)"></div>
+          <figcaption data-caption="room2"></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band food" aria-labelledby="food-title">
+    <div class="wrap split">
+      <div class="frame" data-asset="food" data-alt="{{FOOD_ALT}}" data-slot-label="Food: pizza-brand-food.jpg"></div>
+      <div>
+        <h2 id="food-title">Pizza, cold beer, and room for everyone.</h2>
+        <p>The Slice &amp; Pint is the pizza-and-pint spot from El Segundo Brewing Company. Share what your group likes to eat and drink, and we'll talk through options when we follow up.</p>
+        <p class="note muted">There are no set event packages right now. Our team will go over food, drinks and anything else your event needs.</p>
+        <a class="link" href="https://www.thesliceandpint.com/" data-config-href="menuUrl" target="_blank" rel="noopener">See the menu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="how-title">
+    <div class="wrap">
+      <h2 id="how-title">Tell us what you have in mind.</h2>
+      <p class="muted">Sending an inquiry takes a couple of minutes. Here's what happens after that.</p>
+      <ol class="steps">
+        <li><h3>Share your event details</h3><p>Your date, group size and what you're celebrating.</p></li>
+        <li><h3>We review availability</h3><p>Our team checks the room and the arrangements for your date.</p></li>
+        <li><h3>We plan it together</h3><p>We contact you to confirm the details before anything is booked.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band planner" id="plan" aria-labelledby="plan-title">
+    <div class="wrap">
+      <h2 id="plan-title">Plan your event</h2>
+      <p class="intro">Fields marked required are all we need to get started.</p>
+
+      <div class="planner-grid">
+        <form class="card" id="inquiry" name="{{FORM_NAME}}" method="POST" data-netlify="true" netlify-honeypot="company_site" novalidate>
+          <input type="hidden" name="form-name" value="{{FORM_NAME}}">
+          <input type="hidden" name="location" value="{{LOC}}">
+          <input type="hidden" name="submission_id" value="">
+          <p class="notice">Submitting this form sends an inquiry. Your event is not confirmed until our team contacts you.</p>
+
+          <div class="err-summary" id="errSummary" tabindex="-1" hidden>
+            <h3>Check these fields</h3>
+            <ul id="errList"></ul>
+          </div>
+
+          <fieldset>
+            <legend>Your event</legend>
+            <div class="fields two">
+              <div class="field">
+                <label for="date">Preferred date <span class="req">(required)</span></label>
+                <input type="date" id="date" name="date" aria-describedby="date-err">
+                <span class="err" id="date-err" aria-live="polite"></span>
+                <label class="check"><input type="checkbox" id="flexible" name="flexible" value="yes"> I'm flexible on the date</label>
+              </div>
+              <div class="field">
+                <label for="guests">Estimated guests <span class="req">(required)</span></label>
+                <input type="number" id="guests" name="guests" inputmode="numeric" min="1" max="300" step="1" aria-describedby="guests-err">
+                <span class="err" id="guests-err" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="time">Preferred time</label>
+                <select id="time" name="time">
+                  <option value="">No preference</option>
+                  <option>Lunch</option><option>Afternoon</option><option>Evening</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="occasion">Occasion</label>
+                <select id="occasion" name="occasion">
+                  <option value="">Choose one</option>
+                  <option>Birthday</option><option>Team gathering</option><option>Celebration</option><option>Something else</option>
+                </select>
+              </div>
+            </div>
+            <div class="field" style="margin-top:1.1rem">
+              <span class="label" id="seating-label">Seated or standing?</span>
+              <div class="chips" role="radiogroup" aria-labelledby="seating-label">
+                <label><input type="radio" name="seating" value="Seated"><span>Seated</span></label>
+                <label><input type="radio" name="seating" value="Standing"><span>Standing</span></label>
+                <label><input type="radio" name="seating" value="Not sure yet" checked><span>Not sure yet</span></label>
+              </div>
+            </div>
+            <div class="field" style="margin-top:1.1rem">
+              <label for="notes">Anything else we should know?</label>
+              <textarea id="notes" name="notes" maxlength="1000" aria-describedby="notes-count"></textarea>
+              <span class="counter" id="notes-count">0 / 1000</span>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Your contact details</legend>
+            <div class="fields two">
+              <div class="field">
+                <label for="name">Full name <span class="req">(required)</span></label>
+                <input type="text" id="name" name="name" autocomplete="name" maxlength="120" aria-describedby="name-err">
+                <span class="err" id="name-err" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">(required)</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" maxlength="254" aria-describedby="email-err">
+                <span class="err" id="email-err" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="30">
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="hp" aria-hidden="true">
+            <label for="company_site">Leave this field empty</label>
+            <input type="text" id="company_site" name="company_site" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="muted" style="font-size:.92rem">We'll use your details only to respond to this inquiry.<span data-config="privacyLink"></span></p>
+          <button class="btn btn-gold" type="submit" id="submitBtn" style="width:100%">Send Inquiry</button>
+          <div class="status" id="status" role="status" aria-live="polite" hidden></div>
+        </form>
+
+        <aside class="tab" aria-label="Your event summary">
+          <div class="tab-head"><strong>Your event tab</strong><span>The Slice &amp; Pint · {{LOC}}</span></div>
+          <dl>
+            <div class="row"><dt>Date</dt><dd id="t-date" class="empty">Not chosen</dd></div>
+            <div class="row"><dt>Guests</dt><dd id="t-guests" class="empty">Not set</dd></div>
+            <div class="row"><dt>Time</dt><dd id="t-time" class="empty">No preference</dd></div>
+            <div class="row"><dt>Occasion</dt><dd id="t-occasion" class="empty">Not set</dd></div>
+            <div class="row"><dt>Seating</dt><dd id="t-seating">Not sure yet</dd></div>
+            <div class="row"><dt>Name</dt><dd id="t-name" class="empty">Not set</dd></div>
+          </dl>
+          <p class="tab-foot">This is an inquiry, not a booking. Our team confirms availability and arrangements with you.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <h2 id="faq-title">Good to know</h2>
+      <details>
+        <summary>Does sending this form book the room?</summary>
+        <p>No. It sends an inquiry. Your event isn't confirmed until our team contacts you and you agree on the details together.</p>
+      </details>
+      <details>
+        <summary>Do you have event packages?</summary>
+        <p>Not at the moment. Our team will talk through food, drinks and anything else your event needs when we follow up.</p>
+      </details>
+      <details>
+        <summary>Who confirms the arrangements?</summary>
+        <p>The team at our {{LOC}} location reviews every inquiry and confirms availability and arrangements directly with you.</p>
+      </details>
+      <div data-config="minSpendFaq"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div data-asset="badge" data-alt="The Slice &amp; Pint" data-slot-class="logo-slot" data-slot-label="Badge: slice-pint-logo.png"></div>
+    <address>
+      <strong>The Slice &amp; Pint · {{LOC}}</strong><br>
+      {{ADDRESS}}
+      <span data-config="phone"></span>
+    </address>
+    <div class="foot-links">
+      <a href="https://www.thesliceandpint.com/" target="_blank" rel="noopener">thesliceandpint.com</a>
+      <span data-config="privacyFooter"></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+{{CONFIG}}
+</script>
+<script src="{{ROOT}}assets/site.js"></script>
+</body>
+</html>

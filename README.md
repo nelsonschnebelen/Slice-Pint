@@ -1,41 +1,50 @@
-# The Slice & Pint · Redondo Beach private-event landing page
+# The Slice & Pint private-event landing pages
 
-Mobile-first inquiry page for private events at The Slice & Pint, 601 N Pacific Coast Hwy, Redondo Beach. Static HTML/CSS/JS, no build step. Status: **preview, not launched** (`noindex` is set and the form is not connected).
+Mobile-first inquiry pages for private events. Static HTML/CSS/JS, deployed on Netlify (sliceandpint.netlify.app).
 
-## Files
-- `index.html` – the whole page. All approval-gated content is in the `CONFIG` block at the top of the script.
-- `assets/` – optimized WebP images (see manifest below).
-
-## CONFIG switches
-| Key | Current | What it does |
+| Page | Path | Netlify form name |
 |---|---|---|
-| `endpoint` | `""` | Server route that sends the inquiry email. Empty = preview mode: the form shows the payload and sends nothing. |
-| `capacityText` | `""` | Room capacity line. Pending client sign-off (30 seated / 40 standing per client email vs. 20/35 on the football page). |
-| `minSpendFaq` | `false` | Shows the "more than 16 guests, $200 minimum-spend preorder on a single tab" FAQ. Pending approval. |
-| `menuUrl`, `phone`, `privacyUrl` | `""` | Shown only once verified. |
-| `captureUtm` | `false` | Adds UTM/click IDs to the inquiry payload. Only under an approved consent setup. |
-| `captions` | empty | Room photo captions. Add only once the photos are confirmed as the Redondo room. |
+| Redondo Beach (private dining room) | `/` | `redondo-event-inquiry` |
+| El Segundo (the Dugout) | `/el-segundo/` | `el-segundo-event-inquiry` |
 
-## Form backend contract (to build)
-`POST {endpoint}` with JSON, header `Idempotency-Key: <submission_id>`. Respond `{ "ok": true }` only after the mail provider accepts the message.
+## Editing
+Both pages are generated from one template. Don't edit `index.html` or `el-segundo/index.html` directly.
+- Shared markup: `src/template.html`
+- Shared styles and behavior: `assets/site.css`, `assets/site.js`
+- Per-location copy, address, photos and approval switches: `LOCATIONS` and `COMMON` in `build.py`
 
-- Recipient comes from server env `INQUIRY_TO`. Never from the request, never committed to this repo.
-- Provider key in server env only. Authenticated sending domain; `Reply-To` = validated visitor email.
-- Subject: `Redondo event inquiry | <date or Flexible> | <guests> guests`.
-- Server-side validation and length limits matching the page, escaped email body, request-size limit, honeypot (`company_site` must be empty), rate limiting, idempotency on `submission_id`.
-- No visitor autoresponder until its copy is approved.
+Then run `python3 build.py` and commit the output.
+
+## Form submissions (Netlify Forms)
+The form posts to Netlify Forms, but only on hosts listed in `liveHosts` (currently `sliceandpint.netlify.app`). Anywhere else, including previews, it shows the payload and sends nothing. Add any custom domain to `liveHosts` before pointing it at the site.
+
+One-time setup in the Netlify dashboard, required before submissions work:
+1. **Forms → Enable form detection**, then redeploy so both forms are registered.
+2. **Forms → Form notifications → Add notification → Email**: one per form, sent to the events contact. The recipient lives in Netlify, not in this repo.
+3. Submit one test inquiry per page and confirm the email arrives.
+
+Spam protection is the `company_site` honeypot (`netlify-honeypot`). Each submission carries a `submission_id`, and the page blocks double submits.
+
+## Approval switches (`build.py`)
+| Key | Current | Notes |
+|---|---|---|
+| `capacityText` | `""` | Redondo: client email says ~30 seated / 40 standing, old site says 20/35. El Segundo Dugout: not confirmed. |
+| `minSpendFaq` | `False` | "More than 16 guests, $200 minimum-spend preorder on a single tab." Confirm it applies to each location. |
+| `menuUrl`, `phone`, `privacyUrl` | `""` | Shown once verified. |
+| `captureUtm` | `False` | Only under an approved consent setup. |
 
 ## Tracking
-Pushes to `window.dataLayer`: `lp_view`, `cta_click`, `form_start`, `form_validation_error` (field names only), `generate_lead` (once per successful submission ID). No names, emails, phones or notes in any event. No GA4/GTM/Ads/Meta IDs are installed yet.
+Pushes to `window.dataLayer`: `lp_view`, `cta_click`, `form_start`, `form_validation_error` (field names only), `generate_lead` (once per successful submission). No personal data in any event. No GA4/GTM/Ads/Meta IDs are installed yet.
 
-## Asset manifest
+## Assets
 | File | Source | Use |
 |---|---|---|
-| `slice-pint-logo.webp` (800×367) | Official badge from thesliceandpint.com | Header and footer. Not redrawn or recolored. |
-| `food-spread.webp` (640×1136) | Supplied by Nelson | Hero (food, not presented as the venue). |
-| `pepperoni.webp` (720×820) | Supplied by Nelson | Food section. |
-| `room-1.webp` (418×400) | Supplied by Nelson, cropped to remove a TV broadcast | Space gallery. Location to be confirmed. |
-| `room-2.webp` (348×348) | Supplied by Nelson | Space gallery. Location to be confirmed. Low resolution. |
+| `slice-pint-logo.webp` | Official badge, thesliceandpint.com | Header and footer, both pages |
+| `redondo-private-dining.webp` | Brittney via Slack, Oct 15 | Redondo hero |
+| `room-1.webp`, `room-2.webp` | Supplied by Nelson | Redondo gallery. Location not confirmed. |
+| `pepperoni.webp` | Supplied by Nelson | Redondo food section |
+| `el-segundo-dugout.webp` | Eli via Slack, Oct 29. TV screens blanked (one showed an ad with a person and phone number). | El Segundo hero |
+| `margherita.webp` | Official site, filename labeled El Segundo | El Segundo food section |
+| `food-spread.webp` | Supplied by Nelson | Not currently used |
 
-## Launch gates
-Confirm room photos are Redondo · resolve capacity and the Friday–Sunday group policy on the existing site · approve min-spend FAQ · build backend and set `INQUIRY_TO` · choose hosting/domain · verify privacy policy and tracking destinations · approved live test email · remove `noindex`.
+Both pages are `noindex` until they live on the restaurant's own domain.
