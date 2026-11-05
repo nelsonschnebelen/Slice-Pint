@@ -12,3 +12,6 @@
   from = "/index.html"
   to = "/redondo/"
   status = 301
+
+[functions]
+  directory = "netlify/functions"

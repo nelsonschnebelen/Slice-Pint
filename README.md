@@ -20,8 +20,14 @@ The form posts to Netlify Forms, but only on hosts listed in `liveHosts` (curren
 
 One-time setup in the Netlify dashboard, required before submissions work:
 1. **Forms → Enable form detection**, then redeploy so both forms are registered.
-2. **Forms → Form notifications → Add notification → Email**: one per form, sent to the events contact. The recipient lives in Netlify, not in this repo.
-3. Submit one test inquiry per page and confirm the email arrives.
+2. **Site configuration → Environment variables**: set `SLACK_WEBHOOK_URL_SLICEANDPINT` to the Slack incoming webhook for the events channel. Do not commit the URL. `netlify/functions/submission-created.mjs` posts each verified `redondo-event-inquiry` and `el-segundo-event-inquiry` there, and @mentions Eli and Brittney. If the variable is missing, the function logs a one-line warning and does not post.
+3. Submit one test inquiry per page and confirm the Slack message arrives.
+
+Dry-run the message locally. This prints the Slack JSON and does not post:
+
+```
+DRY_RUN=1 node scripts/dry-run-submission.mjs
+```
 
 Spam protection is the `company_site` honeypot (`netlify-honeypot`). Each submission carries a `submission_id`, and the page blocks double submits.
 
