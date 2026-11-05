@@ -1,0 +1,14 @@
+# Old Redondo private-events URL. /redondo/ is the static page (redondo/index.html).
+# Not forced: nothing is published at /, so this does not shadow /redondo/ or /el-segundo/.
+# Both inquiry forms POST to their own page path, not to /, so this 301 does not receive submissions.
+# Do not add a slash redirect between /redondo and /redondo/; Netlify treats those as the same path.
+
+[[redirects]]
+  from = "/"
+  to = "/redondo/"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/redondo/"
+  status = 301

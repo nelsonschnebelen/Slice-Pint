@@ -4,11 +4,11 @@ Mobile-first inquiry pages for private events. Static HTML/CSS/JS, deployed on N
 
 | Page | Path | Netlify form name |
 |---|---|---|
-| Redondo Beach (private dining room) | `/` | `redondo-event-inquiry` |
+| Redondo Beach (private dining room) | `/redondo/` | `redondo-event-inquiry` |
 | El Segundo (the Dugout) | `/el-segundo/` | `el-segundo-event-inquiry` |
 
 ## Editing
-Both pages are generated from one template. Don't edit `index.html` or `el-segundo/index.html` directly.
+Both pages are generated from one template. Don't edit `redondo/index.html` or `el-segundo/index.html` directly. `/` and `/index.html` 301 to `/redondo/`.
 - Shared markup: `src/template.html`
 - Shared styles and behavior: `assets/site.css`, `assets/site.js`
 - Per-location copy, address, photos and approval switches: `LOCATIONS` and `COMMON` in `build.py`
@@ -16,7 +16,7 @@ Both pages are generated from one template. Don't edit `index.html` or `el-segun
 Then run `python3 build.py` and commit the output.
 
 ## Form submissions (Netlify Forms)
-The form posts to Netlify Forms, but only on hosts listed in `liveHosts` (currently `sliceandpint.netlify.app`). Anywhere else, including previews, it shows the payload and sends nothing. Add any custom domain to `liveHosts` before pointing it at the site.
+The form posts to Netlify Forms, but only on hosts listed in `liveHosts` (currently `sliceandpint.netlify.app`). Anywhere else, including previews, it shows the payload and sends nothing. Add any custom domain to `liveHosts` before pointing it at the site. Each page posts to its own static path (`/redondo/` and `/el-segundo/`), not `/`, because `/` is a 301.
 
 One-time setup in the Netlify dashboard, required before submissions work:
 1. **Forms → Enable form detection**, then redeploy so both forms are registered.
